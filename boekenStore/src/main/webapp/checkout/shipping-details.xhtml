@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta charset="UTF-8" />
+	<title>JEE7 Starter</title>
+
+	<h:outputScript library="jquery-2.2.1" name="jquery.js" />
+	<h:outputScript library="bootstrap-3.3.6" name="/js/bootstrap.js" />
+	<ui:insert name="customScripts" />
+
+	<h:outputStylesheet library="bootstrap-3.3.6"
+		name="/css/bootstrap-jsf.css" />
+	<ui:insert name="customStylesheets" />
+</h:head>
+<h:body>
+
+	<f:view>
+
+		<ui:composition template="../templates/template.xhtml">
+			<ui:define name="panel-top">
+				<h3>Shipping details</h3>
+
+			</ui:define>
+
+			<ui:define name="pageContent">
+				<h:form id="shipping">
+					<h:panelGrid columns="2">
+
+						<h:outputLabel for="name">Name</h:outputLabel>
+						<h:inputText id="name" value="#{checkout.shippingName}" />
+
+						<h:outputLabel for="address">address</h:outputLabel>
+						<h:inputText id="address" value="#{checkout.shippingAddress}" />
+
+						<h:outputLabel for="city">city</h:outputLabel>
+						<h:inputText id="city" value="#{checkout.shippingCity}" />
+
+						<h:outputText value="" />
+						<h:commandButton value="continue" action="payment" />
+
+						<h:outputText value="" />
+						<h:commandButton value="finished" action="finish" />
+
+					</h:panelGrid>
+				</h:form>
+			</ui:define>
+		</ui:composition>
+	</f:view>
+</h:body>
+</html>

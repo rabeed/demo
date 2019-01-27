@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta charset="UTF-8" />
+	<title>JEE7 Starter</title>
+
+	<h:outputScript library="jquery-2.2.1" name="jquery.js" />
+	<h:outputScript library="bootstrap-3.3.6" name="/js/bootstrap.js" />
+	<ui:insert name="customScripts" />
+
+	<h:outputStylesheet library="bootstrap-3.3.6"
+		name="/css/bootstrap-jsf.css" />
+	<ui:insert name="customStylesheets" />
+</h:head>
+<h:body>
+
+	<ui:composition template="templates/template.xhtml">
+		<f:metadata>
+			<f:viewParam name="productId" value="#{productDetails.productId}"></f:viewParam>
+			<f:viewAction action="#{productDetails.onload}"></f:viewAction>
+		</f:metadata>
+
+		<ui:define name="pageContent">
+			<h1>Product details</h1>
+			<section class="product-details">
+				<h:graphicImage name="images/download.jpg" />
+				<img src="images/download.jpg" alt="#{productName}" />
+				<h:form>
+					<p>#{productDetails.product.name}</p>
+					<p>#{productDetails.product.description}</p>
+					<p>#{productDetails.product.price}</p>
+					<h:commandLink value="add to cart"
+						action="#{shoppingCart.addProduct(p)}" />
+					<p>
+						<h:link outcome="home" value="Back to products" />
+					</p>
+				</h:form>
+
+
+			</section>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>

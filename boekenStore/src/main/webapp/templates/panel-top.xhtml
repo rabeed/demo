@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+<ui:composition>
+	welcom visitor;
+		<section>
+		<ui:fragment rendered==#{shoppingCart.total==0}>
+			<p>
+				your
+				<h:outputLink value="shoppingCar.xhtml">shoopingcart</h:outputLink>
+				is empty.
+			</p>
+		</ui:fragment>
+		<ui:fragment rendered==#{shoppingCart.total==1}>
+			<p>
+				your
+				<h:outputLink value="shoppingCar.xhtml">shoopingcart</h:outputLink>
+				contains .
+			</p>
+		</ui:fragment>
+		<ui:fragment rendered==#{shoppingCart.total>1}>
+		<p>
+				your
+				<h:outputLink value="shoppingCar.xhtml">shoopingcart</h:outputLink>
+				contains #{shoppingCart.total}.
+			</p>
+		</ui:fragment>
+	</section>
+</ui:composition>
+
+</html>
