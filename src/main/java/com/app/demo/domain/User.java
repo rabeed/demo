@@ -1,17 +1,27 @@
 package com.app.demo.domain;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "user")
 public class User {
 
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String firstname;
-    private String lastname;
+    private String name;
+    private String lname;
 
+    public User()
+    {
+
+    }
 
     public User(Long id, String firstname, String lastname) {
         this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
+        this.name = firstname;
+        this.lname = lastname;
     }
 
     public Long getId() {
@@ -22,19 +32,19 @@ public class User {
         this.id = id;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLname() {
+        return lname;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLname(String lname) {
+        this.lname = lname;
     }
 }
